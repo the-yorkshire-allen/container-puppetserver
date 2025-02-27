@@ -41,6 +41,8 @@ ENV PUPPETSERVER_JAVA_ARGS="-Xms1024m -Xmx1024m" \
     PUPPETSERVER_HOSTNAME="" \
     CERTNAME="" \
     DNS_ALT_NAMES="" \
+    CATALOG_REQUEST_SERVERS="" \
+    REPORT_REQUEST_SERVERS="" \
     PUPPETSERVER_PORT=8140 \
     AUTOSIGN=true \
     PUPPETSERVER_MAX_ACTIVE_INSTANCES=1 \
@@ -72,6 +74,8 @@ ENV PUPPETSERVER_JAVA_ARGS="-Xms1024m -Xmx1024m" \
 COPY docker-entrypoint.sh \
      healthcheck.sh \
      add_cache_del_api_auth_rules.rb \
+     add_catalog_compilers_to_auth.rb \
+     add_report_servers_to_auth.rb \
      metrics.conf.tmpl \
      Dockerfile \
      /
